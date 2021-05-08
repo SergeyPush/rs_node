@@ -52,7 +52,7 @@ for (let item of data_string) {
 }
 
 if (output) {
-  fs.appendFileSync(output, data.join(""));
+  fs.appendFileSync(output, data.join("") + "\r\n");
 } else {
   process.stdout.write(data.join("") + "\n");
 }

@@ -9,13 +9,6 @@ data_string = "";
 let input = "";
 let output = "";
 
-console.log(argv);
-
-async function readableToString(readable) {
-  const str = await getStream(readable);
-  return str;
-}
-
 if ("s" in argv || "shift" in argv) {
   shift = Number(argv["s"] || argv["shift"]);
 }
@@ -35,7 +28,12 @@ if (!shift || !action) {
   process.exit(1);
 }
 if (input) {
-  data_string = fs.readFileSync(input, "utf8", (err, data) => {});
+  try {
+    data_string = fs.readFileSync(input, "utf8", (err, data) => {});
+  } catch (error) {
+    console.log("No such file");
+    process.exit(1);
+  }
 } else {
   data_string = prompt("> ");
 }
@@ -54,7 +52,7 @@ for (let item of data_string) {
 }
 
 if (output) {
-  fs.writeFileSync(output, data.join(""));
+  fs.appendFileSync(output, data.join(""));
 } else {
   process.stdout.write(data.join("") + "\n");
 }

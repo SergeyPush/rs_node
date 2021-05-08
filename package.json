@@ -1,0 +1,15 @@
+{
+  "name": "task_1",
+  "version": "1.0.0",
+  "description": "RS school task #1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergey Pushkovskiy",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "prompt-sync": "^4.2.0"
+  }
+}
